@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>larn vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      .box{
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Hello vue</h1>
+    
+    <div id="app">
+      <button v-on:click="age++">increaseage</button>
+      <button v-on:click="age--">decreaseage</button>
+      <div @click="changetitle('authama')">change book title</div>
+      <div v-if="showBook"><h2>{{title}}-{{auther}}-Age[{{age}}]</h2></div>
+      <button @click="TogleShowbook">
+        <span v-if="showBook">
+          hide books
+        </span>
+        <span v-else>
+          show books
+        </span>
+      </button>
+      <div v-show="showBook">currently showing </div>
+      <br>
+      <!--mouse event-->
+      <div class="box" @mouseover="handleEvent($event,5)">mouseover (enter){{comment}}</div>
+      <div class="box" @mouseleave="handleEvent">mouseleave-{{comment}}</div>
+      <div class="box" @dblclick="handleEvent">doubleclick</div>
+      <div class="box" @mousemove="handleMousemove">position-{{x}} {{y}}</div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
